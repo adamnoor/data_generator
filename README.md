@@ -2,11 +2,11 @@
 
 This is an application that creates fantasy football rosters based on loaded in csv files.  Load in a csv file with name players.csv and the header: player, price, position, floor, ceiling
 
-player is a string that is the name of the player
-price is an int that is the price of the player
-position is a string that depending on the position is either: QB, RB, WR, TE, DF
-floor is an int that is the floor prediction of points for the player
-ceiling is an int that is the ceiling prediciton of points for the player
+player is a string that is the name of the player/
+price is an int that is the price of the player/
+position is a string that depending on the position is either: QB, RB, WR, TE, DF/
+floor is an int that is the floor prediction of points for the player/
+ceiling is an int that is the ceiling prediciton of points for the player/
 
 There is currently a players.csv file that creates over 100000 rosters.  Replace the file with one of the same name to see unique data.  Later versions will accomodate multiple csv files.
 
