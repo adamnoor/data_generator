@@ -38,8 +38,8 @@ rb_wr_qb_combos = []
 rb_wr_qb_te_combos = []
 full_roster = []
 roster_breakdown = {}
-players_csv = 'players.csv'     # This variable holds the name of the file that is exported
-rosters_csv = 'rosters.csv'     # This variable holds the name of the file that is exported
+players_csv = ''     # This variable holds the name of the file that is exported
+rosters_csv = ''     # This variable holds the name of the file that is exported
 roster_budget = 50000  # This variable sets the total budget for the roster
 flex_min = 2600    # This variable sets the minimum amount that can be left for the flex
 flex_max = 9300     # This variable sets the maximum amount that can be left for the flex
@@ -47,6 +47,42 @@ iterations = 10000     # This variable sets how often progress is shown in the c
 
 
 # Functions
+
+def get_user_information():
+
+    global flex_min
+    flex_min = int(input("What is the minimum amount for the flex? "))
+    global flex_max
+    flex_max = int(input("What is the maximum amount for the flex? "))
+    while flex_max < flex_min:
+        print("The maximum must be more than " + str(flex_min))
+        flex_max = int(input("What is the maximum amount for the flex? "))
+    global roster_budget
+    roster_budget = int(input("What is the budget? "))
+    while flex_max > roster_budget:
+        print("The budget must be more than " + str(roster_budget))
+        roster_budget = int(input("What is the budget? "))
+    choice = int(input("Which roster size (small- 1, medium- 2, large- 3 or other number)? "))
+    global players_csv
+    global rosters_csv
+
+    if choice == 1:
+        players_csv = 'players_small.csv'
+        rosters_csv = 'rosters_small.csv'
+
+    elif choice == 2:
+        players_csv = 'players_medium.csv'
+        rosters_csv = 'rosters_medium.csv'
+
+    else:
+        players_csv = 'players_large.csv'
+        rosters_csv = 'rosters_large.csv'
+
+    print("Your min flex is: ", flex_min)
+    print("Your max flex is: ", flex_max)
+    print("Your budget is: ", roster_budget)
+
+
 def open_csv():
     with open(players_csv, 'r') as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -63,36 +99,6 @@ def open_csv():
                 players.append(player)
                 roster_breakdown[player.name] = 0
 
-
-def get_user_information():
-
-    global flex_min
-    flex_min = int(input("What is the minimum amount for the flex? "))
-    global flex_max
-    flex_max = int(input("What is the maximum amount for the flex? "))
-    while flex_max < flex_min:
-        print("The maximum must be more than " + str(flex_min))
-        flex_max = int(input("What is the maximum amount for the flex? "))
-    global roster_budget
-    roster_budget = int(input("What is the budget? "))
-    while flex_max > roster_budget:
-        print("The budget must be more than " + str(roster_budget))
-        roster_budget = int(input("What is the budget? "))
-    choice = int(input("Which roster size (small- 1, medium- 2, large- 3)? "))
-    global players_csv
-
-    if choice == 1:
-        players_csv = 'players.csv'
-
-    elif choice == 2:
-        players_csv = 'players.csv'
-
-    else:
-        players_csv = 'players.csv'
-
-    print("Your min flex is: ", flex_min)
-    print("Your max flex is: ", flex_max)
-    print("Your budget is: ", roster_budget)
 
 
 
@@ -259,8 +265,8 @@ def complete_roster():
 
 
 def run_program():
-    open_csv()
     get_user_information()
+    open_csv()
     set_players()
     set_running_backs()
     set_wide_receivers()
