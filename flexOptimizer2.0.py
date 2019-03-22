@@ -30,7 +30,7 @@ quarter_backs = []
 running_backs = []
 wide_receivers = []
 tight_ends = []
-defences = []
+defenses = []
 rb_combos = []
 wr_combos = []
 rb_wr_combos = []
@@ -126,10 +126,10 @@ def set_players():
             else:
                 tight_ends.append(player)
         elif player.position == "DF":
-            if not defences:
-                defences.insert(0, player)
+            if not defenses:
+                defenses.insert(0, player)
             else:
-                defences.append(player)
+                defenses.append(player)
 
 
 def set_running_backs():
@@ -201,7 +201,7 @@ def combine_wr_rb__qb_te():
 
 
 def complete_roster():
-    total_combos = len(defences) * len(rb_wr_qb_te_combos)
+    total_combos = len(defenses) * len(rb_wr_qb_te_combos)
     print("Running 5 of 5.  This could take some time.  The total number of combinations is " +
           str(total_combos))
     p = -1
@@ -209,7 +209,7 @@ def complete_roster():
     with open(rosters_csv, 'w') as f:
         the_writer = csv.writer(f)
         the_writer.writerow(['QB', 'RB1', 'RB2', 'WR1', 'WR2', 'WR3', 'TE', 'DF', 'FX', 'Floor', 'Ceiling'])
-    while p < len(defences) - 1:
+    while p < len(defenses) - 1:
         p += 1
         q = 0
         while q < len(rb_wr_qb_te_combos):
@@ -220,7 +220,7 @@ def complete_roster():
             wr2 = rb_wr_qb_te_combos[q][5]
             wr3 = rb_wr_qb_te_combos[q][6]
             te = rb_wr_qb_te_combos[q][0]
-            df = defences[p]
+            df = defenses[p]
             price = int(qb.price) + int(rb1.price) + int(rb2.price) + int(wr1.price) + int(wr2.price) + int(wr3.price)\
                 + int(te.price) + int(df.price)
             floor = int(qb.floor) + int(rb1.floor) + int(rb2.floor) + int(wr1.floor) + int(wr2.floor) + int(wr3.floor)\
