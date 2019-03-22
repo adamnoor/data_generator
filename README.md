@@ -12,4 +12,4 @@ There are currently three csv files- players_small.csv, players_medium.csv, play
 
 The output allows for up to three csv files with all of the potential roster combinations as well as a column for "amount left for flex."  This is one of the parameters set at the start of running the program through a prompt.
 
-At the start of the program a prompt appears to set the minimum and maximum of the amount left for the flex, as well as the budget.  There is a prompt to allow for multiple csv files but they all currently point to the same file.  The get_user_info function where the update to allow for multiple csv files will happen. 
+At the start of the program a prompt appears to set the minimum and maximum of the amount left for the flex, as well as the budget.  There is a prompt to allow for multiple csv files but they all currently point to the same file.
