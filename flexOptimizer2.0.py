@@ -10,6 +10,7 @@
 
 
 # Libraries
+import time
 import csv
 from itertools import combinations
 
@@ -98,8 +99,6 @@ def open_csv():
             else:
                 players.append(player)
                 roster_breakdown[player.name] = 0
-
-
 
 
 def set_players():
@@ -266,6 +265,8 @@ def complete_roster():
 
 def run_program():
     get_user_information()
+    start = time.process_time()
+    print("Timer Started")
     open_csv()
     set_players()
     set_running_backs()
@@ -274,6 +275,9 @@ def run_program():
     combine_wr_rb_qb()
     combine_wr_rb__qb_te()
     complete_roster()
+    end = time.process_time()
+    print("Time (in seconds): " + str(end-start))
+    # print(end - start)
 
 
 # Function Call to Start Program
