@@ -4,7 +4,7 @@ This is an application that creates fantasy football rosters based on loaded in 
 
 - player is a string that is the name of the player
 - price is an int that is the price of the player
-- position is a string that depending on the position is either: QB, RB, WR, TE, DF
+- position is an enum (string) that depending on the position is either: QB, RB, WR, TE, DF
 - floor is an int that is the floor prediction of points for the player
 - ceiling is an int that is the ceiling prediciton of points for the player
 
