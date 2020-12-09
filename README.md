@@ -1,5 +1,11 @@
 # flexOptimizer2.0
 
+The updated Version of this application is roster_generator.  Go to that repository instead.
+
+THIS PROGRAM IS OLD AND DOESN'T RUN AS WELL AS roster_generator.
+
+
+
 This is an application that creates fantasy football rosters based on loaded in csv files.  Load in a csv file with name players.csv and the header: player, price, position, floor, ceiling:
 
 - player is a string that is the name of the player
